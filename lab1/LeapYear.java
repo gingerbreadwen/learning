@@ -15,6 +15,7 @@ public class LeapYear {
     }
     /** Calls isLeapYear to print correct statement.
      *  @param  year to be analyzed
+     *  @return whether is LeapYear
      */
     public static boolean isLeapYear(int year){
     	if (year % 4 != 0) {
