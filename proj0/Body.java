@@ -24,7 +24,9 @@ public class Body{
 
 	}
 
-	public double calcDistance(Body rocinante){
-		return Math.s
+	public double calcDistance(Body b){
+		double dx = this.xxPos - b.xxPos;
+		double dy = this.yyPos - b.yyPos;
+		return Math.sqrt(dx*dx + dy*dy);			
 	}
 }
