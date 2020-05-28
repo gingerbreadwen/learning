@@ -29,7 +29,8 @@ public class InDemo {
 			if (name.equals(args[0])) {
 				System.out.println(args[0] + " produces " +
 					               tons + " of salt per year. Very nice!");
-			}			
+			}
+			System.out.println(name);			
 		}
 	}
 } 
