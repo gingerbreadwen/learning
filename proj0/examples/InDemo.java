@@ -30,7 +30,7 @@ public class InDemo {
 				System.out.println(args[0] + " produces " +
 					               tons + " of salt per year. Very nice!");
 			}
-			System.out.println(name);			
+					
 		}
 	}
 } 
