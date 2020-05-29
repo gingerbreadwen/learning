@@ -33,12 +33,41 @@ public class NBody{
 		return body;
 	}
 
+	public static String imageToDraw = "images/starfield.jpg";
+
+	/* Draws three copies of the image in a rectangular pattern. */
+	public static void drawStarfield() {
+				/** Enables double buffering.
+		  * A animation technique where all drawing takes place on the offscreen canvas.
+		  * Only when you call show() does your drawing get copied from the
+		  * offscreen canvas to the onscreen canvas, where it is displayed
+		  * in the standard drawing window. */
+		StdDraw.enableDoubleBuffering();
+
+		/** Sets up the universe so it goes from
+		  * -100, -100 up to 100, 100 */
+		StdDraw.setScale(-512,512);
+
+		/* Clears the drawing window. */
+		StdDraw.clear();
+
+		/* Stamps three copies of advice.png in a triangular pattern. */
+	
+		StdDraw.picture(0, 0, imageToDraw);
+	
+
+		/* Shows the drawing to the screen, and waits 2000 milliseconds. */
+		StdDraw.show();
+		StdDraw.pause(2000);
+	}
+
 	public static void main(String[] args) {
-		double T = Double(args[0]);
-		double dt = Double(args[1]);
+		double T = Double.parseDouble(args[0]);
+		double dt = Double.parseDouble(args[1]);
 		String filename = args[2];
 		double Radius = NBody.readRadius(filename);
-		NBody.readBodies(filename);
+		Body[] b = NBody.readBodies(filename);
+		NBody.drawStarfield();
 	}
 
 }
