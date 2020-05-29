@@ -33,4 +33,12 @@ public class NBody{
 		return body;
 	}
 
+	public static void main(String[] args) {
+		double T = Double(args[0]);
+		double dt = Double(args[1]);
+		String filename = args[2];
+		NBody.readRadius(filename);
+		NBody.readBodies(filename);
+	}
+
 }
