@@ -37,26 +37,26 @@ public class NBody{
 
 	/* Draws three copies of the image in a rectangular pattern. */
 	public static void drawStarfield() {
-				/** Enables double buffering.
-		  * A animation technique where all drawing takes place on the offscreen canvas.
-		  * Only when you call show() does your drawing get copied from the
-		  * offscreen canvas to the onscreen canvas, where it is displayed
-		  * in the standard drawing window. */
+	/** Enables double buffering.
+	 * A animation technique where all drawing takes place on the offscreen canvas.
+	 * Only when you call show() does your drawing get copied from the
+	 * offscreen canvas to the onscreen canvas, where it is displayed
+	 * in the standard drawing window. */
 		StdDraw.enableDoubleBuffering();
 
-		/** Sets up the universe so it goes from
-		  * -100, -100 up to 100, 100 */
-		StdDraw.setScale(-512,512);
+	/** Sets up the universe so it goes from
+	  * -100, -100 up to 100, 100 */
+		StdDraw.setScale(-2.50e+11,2.50e+11);
 
-		/* Clears the drawing window. */
+	/* Clears the drawing window. */
 		StdDraw.clear();
 
-		/* Stamps three copies of advice.png in a triangular pattern. */
+	/* Stamps copies of pic. */
 	
 		StdDraw.picture(0, 0, imageToDraw);
 	
 
-		/* Shows the drawing to the screen, and waits 2000 milliseconds. */
+	/* Shows the drawing to the screen, and waits 2000 milliseconds. */
 		StdDraw.show();
 		StdDraw.pause(2000);
 	}
@@ -68,6 +68,24 @@ public class NBody{
 		double Radius = NBody.readRadius(filename);
 		Body[] b = NBody.readBodies(filename);
 		NBody.drawStarfield();
+		int i = 0;
+		while(i<b.length){
+			b[i].draw();
+			i++;
+		}
+		enableDoubleBuffering();
+		show();
+		double time = 0.0;
+		int i=1;
+		while(time<=T){
+			double[] xForces;
+			double[] yForces;
+			b[i].calc
+			time = time + i*dt
+			i++;
+
+		}
+		
 	}
 
 }
