@@ -89,28 +89,12 @@ public class Body{
 	}
 
 	public void draw(){
-		String a = "images/";
-		String b = this.imgFileName;
-		String imageToDraw =a.concat(b);
-		StdDraw.enableDoubleBuffering();
 
-	/** Sets up the universe so it goes from
-	  * -100, -100 up to 100, 100 */
-		StdDraw.setScale(-2.50e+11,2.50e+11);
-
-	/* Clears the drawing window. */
-		
-
-	/* Stamps copies of pic. */
 		StdDraw.picture(this.xxPos, 
-			this.yyPos,imageToDraw);
+			this.yyPos, "images/"+this.imgFileName);
 		
 		
-	
 
-	/* Shows the drawing to the screen, and waits 2000 milliseconds. */
-		StdDraw.show();
-		StdDraw.pause(2000);
 	}
 
 }

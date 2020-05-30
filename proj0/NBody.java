@@ -36,7 +36,7 @@ public class NBody{
 	public static String imageToDraw = "images/starfield.jpg";
 
 	/* Draws three copies of the image in a rectangular pattern. */
-	public static void drawStarfield() {
+	public static void drawStarfield(double r) {
 	/** Enables double buffering.
 	 * A animation technique where all drawing takes place on the offscreen canvas.
 	 * Only when you call show() does your drawing get copied from the
@@ -46,19 +46,19 @@ public class NBody{
 
 	/** Sets up the universe so it goes from
 	  * -100, -100 up to 100, 100 */
-		StdDraw.setScale(-2.50e+11,2.50e+11);
+		StdDraw.setScale(-2*r,2*r);
 
 	/* Clears the drawing window. */
 		StdDraw.clear();
 
-	/* Stamps copies of pic. */
+	
 	
 		StdDraw.picture(0, 0, imageToDraw);
 	
 
 	/* Shows the drawing to the screen, and waits 2000 milliseconds. */
 		StdDraw.show();
-		StdDraw.pause(2000);
+		
 	}
 
 	public static void main(String[] args) {
@@ -66,25 +66,103 @@ public class NBody{
 		double dt = Double.parseDouble(args[1]);
 		String filename = args[2];
 		double Radius = NBody.readRadius(filename);
-		Body[] b = NBody.readBodies(filename);
-		NBody.drawStarfield();
-		int i = 0;
-		while(i<b.length){
-			b[i].draw();
-			i++;
-		}
-		enableDoubleBuffering();
-		show();
-		double time = 0.0;
-		int i=1;
-		while(time<=T){
-			double[] xForces;
-			double[] yForces;
-			b[i].calc
-			time = time + i*dt
-			i++;
+		Body[] body = NBody.readBodies(filename);
+		NBody.drawStarfield(Radius);
+		int iz = 0;
+		while(iz<body.length){
+			body[iz].draw();
+			System.out.println("body.xxPos"+body[iz].xxPos);
+			System.out.println("body.yyPos"+body[iz].yyPos);
+			iz++;
 
 		}
+
+		StdDraw.enableDoubleBuffering();
+		StdDraw.show();
+		StdDraw.pause(2000);
+		StdDraw.clear();
+
+		double[] xForces = new double[body.length];
+		double[] yForces = new double[body.length];
+
+		int i=0;
+		while(i<body.length){
+			xForces[i] = body[i].calcNetForceExertedByX(body);
+			yForces[i] = body[i].calcNetForceExertedByY(body);
+			System.out.println("xForces"+xForces[i]);
+
+			i++;
+		}
+
+		int j = 0;
+		while(j<body.length){
+			body[j].update(dt,xForces[j],yForces[j]);
+			System.out.println("body.xxPos"+body[j].xxPos);
+			System.out.println("body.yyPos"+body[j].yyPos);
+			j++;
+		}
+
+		NBody.drawStarfield(Radius);
+		int k = 0;
+		while(k<body.length){
+			body[k].draw();
+			k++;
+		}
+		StdDraw.enableDoubleBuffering();
+		StdDraw.show();
+
+
+		
+
+		/*
+
+
+		double[] xForces = new double[body.length];
+		double[] yForces = new double[body.length];
+
+		double time = 0.0;
+		int i1 = 0;
+		
+		while(time<=T){
+			int i=0;
+			while(i<body.length){
+				xForces[i] = body[i].calcNetForceExertedByX(body);
+				yForces[i] = body[i].calcNetForceExertedByY(body);
+				System.out.println("xForces"+i);
+				i++;
+			}
+
+			int j = 0;
+			while(j<body.length){
+				body[j].update(dt,xForces[j],yForces[j]);
+				System.out.println("body.xxPos"+j);
+				j++;
+			}
+					
+			NBody.drawStarfield();
+			int k = 0;
+			while(k<body.length){
+				body[k].draw();
+				System.out.println("body.draw"+k);
+				k++;
+				
+							
+			}
+			StdDraw.enableDoubleBuffering();
+			StdDraw.show();
+
+			
+			
+			
+			
+
+			
+
+			i1++;
+			time = time + i1*dt;
+			
+
+		}*/
 		
 	}
 
