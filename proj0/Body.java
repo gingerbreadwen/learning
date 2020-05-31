@@ -85,6 +85,7 @@ public class Body{
 		this.yyVel = this.yyVel + dt*aNetY;
 		this.xxPos = this.xxPos + dt*this.xxVel;
 		this.yyPos = this.yyPos + dt*this.yyVel;
+		System.out.println("ax:"+aNetX+"			ay:"+aNetY);
 
 	}
 
