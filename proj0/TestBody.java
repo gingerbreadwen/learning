@@ -4,45 +4,21 @@
 public class TestBody {
 
     /**
-     *  Tests calcForceExertedBy.
+     *  Tests TestBody.
      */
     public static void main(String[] args) {
-        checkCalcForceExertedBy();
+        Body b1 = new Body(1.4960e+11,0.0000e+00,0.0000e+00,2.9800e+04,5.9740e+24,"earth.gif");
+        Body b2 = new Body(2.2790e+11,0.0000e+00,0.0000e+00,2.4100e+04,6.4190e+23,"mars.gif");
+        double p1 = b1.calcForceExertedBy(b2);
+        double p2 = b2.calcForceExertedBy(b1);
+        double p1x = b1.calcForceExertedByX(b2);
+        double p2x = b2.calcForceExertedByX(b1);
+        double p1y = b1.calcForceExertedByY(b2);
+        double p2y = b2.calcForceExertedByY(b1);
+        System.out.println("fmars:"+p1+" fxmars:"+p1x+" fymars:"+p1y);
+        System.out.println("fearth:"+p2+" fxearth:"+p2x+" fyearth:"+p2y);
+
+
     }
 
-    /**
-     *  Checks whether or not two Doubles are equal and prints the result.
-     *
-     *  @param  expected    Expected double
-     *  @param  actual      Double received
-     *  @param  label       Label for the 'test' case
-     *  @param  eps         Tolerance for the double comparison.
-     */
-    private static void checkEquals(double actual, double expected, String label, double eps) {
-        if (Double.isNaN(actual) || Double.isInfinite(actual)) {
-            System.out.println("FAIL: " + label
-                    + ": Expected " + expected + " and you gave " + actual);
-        } else if (Math.abs(expected - actual) <= eps * Math.max(expected, actual)) {
-            System.out.println("PASS: " + label
-                    + ": Expected " + expected + " and you gave " + actual);
-        } else {
-            System.out.println("FAIL: " + label
-                    + ": Expected " + expected + " and you gave " + actual);
-        }
-    }
-
-
-    /**
-     *  Checks the Body class to make sure calcForceExertedBy works.
-     */
-    private static void checkCalcForceExertedBy() {
-        System.out.println("Checking calcForceExertedBy...");
-
-        Body b1 = new Body(1.0, 1.0, 3.0, 4.0, 5.0, "jupiter.gif");
-        Body b2 = new Body(2.0, 1.0, 3.0, 4.0, 4e11, "jupiter.gif");
-        Body b3 = new Body(4.0, 5.0, 3.0, 4.0, 5.0, "jupiter.gif");
-
-        checkEquals(b1.calcForceExertedBy(b2), 133.4, "calcForceExertedBy()", 0.01);
-        checkEquals(b1.calcForceExertedBy(b3), 6.67e-11, "calcForceExertedBy()", 0.01);
-    }
 }

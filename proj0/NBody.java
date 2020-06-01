@@ -42,6 +42,7 @@ public class NBody{
 		String filename = args[2];
 		String imageToDraw = "images/starfield.jpg";
 		double Radius = NBody.readRadius(filename);
+		System.out.println(Radius);
 		Body[] body = NBody.readBodies(filename);
 
 	

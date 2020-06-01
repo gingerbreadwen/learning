@@ -46,6 +46,21 @@ public class Body{
 		return f;
 	}
 
+	public double calcForceExertedByX(Body b){
+		double dx = b.xxPos - this.xxPos;
+		double fx = this.calcForceExertedBy(b) * dx 
+				/ Math.sqrt(this.calcDistance(b));	
+		return fx;
+	}
+
+	public double calcForceExertedByY(Body b){
+		double dy = b.yyPos - this.yyPos;
+		double fy = this.calcForceExertedBy(b) * dy 
+			/ Math.sqrt(this.calcDistance(b));
+		return fy;
+		
+	}
+
 	public double calcNetForceExertedByX(Body[] s){	
 		double netForceX = 0;
 		for (Body k : s) {
