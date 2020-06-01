@@ -46,21 +46,6 @@ public class Body{
 		return f;
 	}
 
-	public double calcForceExertedByX(Body b){
-		double dx = b.xxPos - this.xxPos;
-		double fx = this.calcForceExertedBy(b) * dx 
-				/ Math.sqrt(this.calcDistance(b));	
-		return fx;
-	}
-
-	public double calcForceExertedByY(Body b){
-		double dy = b.yyPos - this.yyPos;
-		double fy = this.calcForceExertedBy(b) * dy 
-			/ Math.sqrt(this.calcDistance(b));
-		return fy;
-		
-	}
-
 	public double calcNetForceExertedByX(Body[] s){	
 		double netForceX = 0;
 		for (Body k : s) {
@@ -69,7 +54,7 @@ public class Body{
 			}else{
 				double dx = k.xxPos - this.xxPos;
 				double fx = this.calcForceExertedBy(k) * dx 
-				/ Math.sqrt(this.calcDistance(k));	
+				/ this.calcDistance(k);	
 				netForceX = fx + netForceX;					
 			}	
 			
@@ -85,7 +70,7 @@ public class Body{
 			}else{
 				double dy = k.yyPos - this.yyPos;
 				double fy = this.calcForceExertedBy(k) * dy 
-				/ Math.sqrt(this.calcDistance(k));	
+				/ this.calcDistance(k);	
 				netForceY = fy + netForceY;					
 			}	
 			
@@ -100,8 +85,7 @@ public class Body{
 		this.yyVel = this.yyVel + dt*aNetY;
 		this.xxPos = this.xxPos + dt*this.xxVel;
 		this.yyPos = this.yyPos + dt*this.yyVel;
-		System.out.println("ax:"+aNetX+"			ay:"+aNetY);
-
+		
 	}
 
 	public void draw(){

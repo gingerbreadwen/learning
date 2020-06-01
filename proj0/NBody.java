@@ -42,84 +42,32 @@ public class NBody{
 		String filename = args[2];
 		String imageToDraw = "images/starfield.jpg";
 		double Radius = NBody.readRadius(filename);
-		System.out.println(Radius);
 		Body[] body = NBody.readBodies(filename);
-
-	
-
-
-		/*int iz = 0;
-		while(iz<body.length){
-			body[iz].draw();
-			System.out.println("body.xxPos"+body[iz].xxPos);
-			System.out.println("body.yyPos"+body[iz].yyPos);
-			iz++;
-
-		}
-
-		StdDraw.show();
-		StdDraw.pause(2000);
-
-
 		double[] xForces = new double[body.length];
 		double[] yForces = new double[body.length];
-
-
-
-		int i=0;
-		while(i<body.length){
-			xForces[i] = body[i].calcNetForceExertedByX(body);
-			yForces[i] = body[i].calcNetForceExertedByY(body);
-			System.out.println("xForces"+xForces[i]);
-
-			i++;
-		}
-
-		int j = 0;
-		while(j<body.length){
-			body[j].update(dt,xForces[j],yForces[j]);
-			System.out.println("body.xxPos"+body[j].xxPos);
-			System.out.println("body.yyPos"+body[j].yyPos);
-			j++;
-		}
-
-
-		StdDraw.clear();
-
-		StdDraw.picture(0, 0, imageToDraw);
-
-		int k = 0;
-		while(k<body.length){
-			body[k].draw();
-			k++;
-		}
-
-		
-
-
-		StdDraw.show();
-
-
-		
-
-		*/
-
-
-		double[] xForces = new double[body.length];
-		double[] yForces = new double[body.length];
-
 		double time = 0.0;
 		int i1 = 0;
 		
 		while(time<=T){
+			int i=0;
+			while(i<body.length){
+				xForces[i] = body[i].calcNetForceExertedByX(body);
+				yForces[i] = body[i].calcNetForceExertedByY(body);
+				i++;
+				
+			}
 
-			StdDraw.setXscale(-1000*Radius,1000*Radius);
-        	StdDraw.setYscale(-1000*Radius,1000*Radius);
+			int j = 0;
+			while(j<body.length){
+				body[j].update(dt,xForces[j],yForces[j]);
+				j++;
+			}
 
-       		 StdDraw.enableDoubleBuffering();
-			
+			StdDraw.setScale(-Radius,Radius);
+        	StdDraw.enableDoubleBuffering();
 			StdDraw.clear();
 			StdDraw.picture(0, 0, imageToDraw);
+
 
 			int k = 0;
 			while(k<body.length){
@@ -128,35 +76,21 @@ public class NBody{
 							
 			}
 
-
 			StdDraw.show();
 			StdDraw.pause(10);
-
-			int i=0;
-			while(i<body.length){
-				xForces[i] = body[i].calcNetForceExertedByX(body);
-				yForces[i] = body[i].calcNetForceExertedByY(body);
-				System.out.println("fx:"+xForces[i]+"			fy:"+yForces[i]);
-				i++;
-				
-			}
-
-			int j = 0;
-			while(j<body.length){
-				body[j].update(dt,xForces[j],yForces[j]);
-				//System.out.println(body[j].imgFileName+" "+body[j].xxPos+" "+
-					//body[j].yyPos+" "+body[j].xxVel+" "+body[j].yyVel+" "+body[j].mass);
-				j++;
-			}
-					
-			
 	
-
 			i1++;
 			time = time + i1*dt;
 			
 
 		}
+		StdOut.printf("%d\n", body.length);
+		StdOut.printf("%.2e\n", Radius);
+		for (int i = 0; i < body.length; i++) {
+    	StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
+                  body[i].xxPos, body[i].yyPos, body[i].xxVel,
+                  body[i].yyVel, body[i].mass, body[i].imgFileName);   
+}
 		
 	}
 
