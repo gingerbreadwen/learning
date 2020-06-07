@@ -5,7 +5,7 @@ import java.util.Formatter;
  * with a large number of additional methods.
  *
  * @author P. N. Hilfinger, with some modifications by Josh Hug and melaniecebula
- *         [Do not modify this file.]
+ * [Do not modify this file.]
  */
 public class IntList {
     /**
@@ -29,7 +29,7 @@ public class IntList {
      * A List with null rest, and first = 0.
      */
     public IntList() {
-    /* NOTE: public IntList () { }  would also work. */
+        /* NOTE: public IntList () { }  would also work. */
         this(0, null);
     }
 
@@ -76,6 +76,48 @@ public class IntList {
 
 
     /**
+     * Return the size of the list using...recursion!
+     *
+     * @return how many items in this Intlist
+     */
+    public int size() {
+        if (rest == null) {
+            return 1;
+        }
+        return 1 + this.rest.size();
+    }
+
+    /**
+     * Return the size of the list using no recursion!
+     *
+     * @return how many items in this Intlist
+     */
+    public int iterativeSize() {
+        IntList p = this;
+        int totalSize = 0;
+        while (p != null) {
+            totalSize += 1;
+            p = p.rest;
+        }
+        return totalSize;
+
+    }
+
+    /**
+     * Returns the ith item of this Intlist
+     *
+     * @param i ith item
+     * @return the value of the ith item
+     */
+    public int get(int i) {
+        if (i == 0) {
+            return first;
+        }
+        return rest.get(i - 1);
+    }
+
+
+    /**
      * Returns a list consisting of the elements of A followed by the
      * *  elements of B.  May modify items of A. Don't use 'new'.
      */
@@ -94,19 +136,15 @@ public class IntList {
         return null;
     }
 
+    public static void main(String[] args) {
+        IntList L = new IntList(15, null);
+        L = new IntList(10, L);
+        L = new IntList(5, L);
+
+        System.out.println(L.get(100));
 
 
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
     /**

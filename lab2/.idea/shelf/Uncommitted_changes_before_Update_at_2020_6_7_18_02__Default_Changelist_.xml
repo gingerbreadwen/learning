@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Update_at_2020_6_7_18_02_[Default_Changelist]" date="1591524150879" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_6_7_18_02_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2020/6/7 18:02 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="../proj0/NBody.class" />
+    <option name="AFTER_PATH" value="../proj0/NBody.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_6_7_18_02_[Default_Changelist]/NBody.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../proj0/Body.class" />
+    <option name="AFTER_PATH" value="../proj0/Body.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_6_7_18_02_[Default_Changelist]/Body.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../proj0/StdOut.class" />
+    <option name="AFTER_PATH" value="../proj0/StdOut.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_6_7_18_02_[Default_Changelist]/StdOut.class" />
+  </binary>
+</changelist>

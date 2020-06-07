@@ -2,9 +2,11 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$">
+    <content url="file://$MODULE_DIR$/DebugPractice">
       <sourceFolder url="file://$MODULE_DIR$/DebugPractice" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Intlist" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/lists1">
+      <sourceFolder url="file://$MODULE_DIR$/lists1" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
