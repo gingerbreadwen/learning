@@ -18,12 +18,15 @@ public class SLList {
     /* Note: PLEASE DO NOT MESS WITH first */
     private IntNode first;
 
+    private int size;
+
 
 
 
     public SLList(int x) {
         /* 递归运用IntNode，生成节点 */
         first = new IntNode(x, null);
+        size = 1;
 
     }
 
@@ -33,6 +36,7 @@ public class SLList {
      */
     public void addFirst(int x){
         first = new IntNode(x,first);
+        size += 1;
 
 
     }
@@ -58,6 +62,8 @@ public class SLList {
         p.next =new IntNode(x,null);
     }
 
+
+
     /**
      * Returns the size of the list that starts at IntNode p.
      * @param p
@@ -72,7 +78,7 @@ public class SLList {
     }
 
     public int size(){
-        return size(first);
+        return size;
     }
     public static void main(String[] args) {
         /*从尾节点开始链接*/
